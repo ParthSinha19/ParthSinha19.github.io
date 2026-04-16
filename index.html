@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parth Sinha | AI Engineer</title>
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <header class="glass">
+        <h1>Parth Sinha</h1>
+        <button id="theme-toggle">🌙</button>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#research">Research</a>
+            <a href="#skills">Skills</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="glass hero-card">
+            <h2>AI Engineer</h2>
+            <p>Multimodal ML • Signal Processing • Research</p>
+            <a href="assets/resume.pdf" class="btn" target="_blank">Download Resume</a>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="fade-in">
+        <div class="glass">
+            <h2>About Me</h2>
+            <p>
+                MSc AI @ Queen Mary University of London. I build robust multimodal systems 
+                combining vision, language, and signal processing for real-world AI applications.
+            </p>
+        </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+        <h2 class="section-title">Projects</h2>
+        <div id="repo-container" class="grid"></div>
+</section>
+
+    <!-- RESEARCH -->
+    <section id="research" class="fade-in">
+        <div class="glass">
+            <h2>Research</h2>
+            <p>
+                Low-rank multimodal fusion (BERT + ResNet) achieving 80.5% accuracy 
+                with interpretable cross-modal representations.
+            </p>
+        </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+        <h2 class="section-title">Skills</h2>
+
+        <div class="grid">
+            <div class="card glass fade-in">Python • R • C++</div>
+            <div class="card glass fade-in">PyTorch • TensorFlow • Hugging Face</div>
+            <div class="card glass fade-in">GANs • Multimodal ML • Signal Processing</div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="fade-in">
+        <div class="glass">
+            <h2>Contact</h2>
+            <p>Email: parthtata19@gmail.com</p>
+            <p>
+                <a href="#">LinkedIn</a> |
+                <a href="#">GitHub</a>
+            </p>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 Parth Sinha</p>
+    </footer>
+
+    <!-- JS for animations -->
+    <script>
+        const faders = document.querySelectorAll('.fade-in');
+
+        const appearOptions = {
+            threshold: 0.2
+        };
+
+        const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+                entry.target.classList.add("show");
+                observer.unobserve(entry.target);
+            });
+        }, appearOptions);
+
+        faders.forEach(fader => {
+            appearOnScroll.observe(fader);
+        });
+    </script>
+    <script>
+/* =========================
+   🌙 DARK / LIGHT TOGGLE
+========================= */
+const toggleBtn = document.getElementById("theme-toggle");
+
+toggleBtn.addEventListener("click", () => {
+    document.body.classList.toggle("light-mode");
+
+    toggleBtn.textContent =
+        document.body.classList.contains("light-mode") ? "☀️" : "🌙";
+});
+
+
+/* =========================
+📊 GITHUB PROJECT FETCH
+========================= */
+    const username = "ParthSinha19"; // change if needed
+    const container = document.getElementById("repo-container");
+
+    fetch(`https://api.github.com/users/${username}/repos`)
+    .then(res => res.json())
+    .then(data => {
+        data
+            .sort((a, b) => b.stargazers_count - a.stargazers_count)
+            .slice(0, 6)
+            .forEach(repo => {
+                const card = document.createElement("div");
+                card.className = "card glass fade-in";
+
+                card.innerHTML = `
+                    <h3>${repo.name}</h3>
+                    <p>${repo.description || "No description available"}</p>
+                    <a href="${repo.html_url}" target="_blank">View Project →</a>
+                `;
+
+                container.appendChild(card);
+            });
+
+        // re-trigger animation
+        document.querySelectorAll('.fade-in').forEach(el => {
+            el.classList.add('show');
+        });
+    });
+    </script>
+</body>
+</html>
