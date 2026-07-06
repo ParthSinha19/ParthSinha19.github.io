@@ -45,9 +45,10 @@
   <div class="grid fade-in">
     <div class="card glass">
       <p>I'm an MSc Computer Science (Artificial Intelligence) student at Queen Mary University of London,
-        graduating September 2026. My dissertation investigates robustness and geometry in low-rank multimodal
-        fusion, but most of my learning happens by building: retrieval systems, vision-language models, and
-        trading agents that get tested against real leaderboards, not just validation splits.</p>
+        graduating September 2026. My dissertation investigates dominant modality selection and noise
+        suppression in multimodal fusion, but most of my learning happens by building: retrieval systems,
+        vision-language models, and trading agents that get tested against real leaderboards, not just
+        validation splits.</p>
     </div>
     <div class="card glass">
       <p><strong>Location</strong><br>London, UK</p>
@@ -117,16 +118,17 @@
   <div class="card glass fade-in" style="max-width: 800px; margin: 0 auto;">
     <p class="eyebrow">MSc Dissertation · In Progress · Target: AAAI 2027</p>
     <h3>Robustness and Geometry in Low-Rank Multimodal Fusion</h3>
-    <p>A joint Wasserstein Autoencoder combined with Low-Rank Multimodal Fusion (jWAE-LMF), designed to isolate
-      cross-modal interactions within a regularised latent space. Built an original backpropagation profiling
-      framework tracing tensor fusion mechanics, proving cross-modal gradient coupling via an 8–9x increase in
-      gradient sensitivity over standard baselines under modality dropout. Applied Integrated Gradients and
-      feature ablation to evaluate routing precision, and ran progressive dropout sweeps (0–90%) across
-      CMU-MOSI and IEMOCAP to stress-test robustness.</p>
+    <p>Investigates enhanced dominant modality selection and noise suppression in multimodal fusion, using a
+      joint Wasserstein Autoencoder combined with Low-Rank Multimodal Fusion (jWAE-LMF) to isolate cross-modal
+      interactions within a regularised latent space. Built an original backpropagation profiling framework
+      tracing tensor fusion mechanics, providing evidence of cross-modal gradient coupling under modality
+      dropout. Applied Integrated Gradients and feature ablation to evaluate how the model identifies and
+      weights the dominant modality while suppressing noisy signal, validated across three independent
+      datasets: CMU-MOSI, UR-FUNNY, and POM.</p>
     <div class="grid" style="grid-template-columns: repeat(3, 1fr); margin-top: 20px;">
-      <div><strong style="display:block; font-size:1.4rem;">+6.3pp</strong><span style="opacity:0.7; font-size:0.8rem;">vs. additive baselines</span></div>
-      <div><strong style="display:block; font-size:1.4rem;">8–9x</strong><span style="opacity:0.7; font-size:0.8rem;">gradient sensitivity</span></div>
-      <div><strong style="display:block; font-size:1.4rem;">2 datasets</strong><span style="opacity:0.7; font-size:0.8rem;">CMU-MOSI, IEMOCAP</span></div>
+      <div><strong style="display:block; font-size:1.4rem;">3 datasets</strong><span style="opacity:0.7; font-size:0.8rem;">CMU-MOSI, UR-FUNNY, POM</span></div>
+      <div><strong style="display:block; font-size:1.4rem;">Noise-aware</strong><span style="opacity:0.7; font-size:0.8rem;">dominant modality routing</span></div>
+      <div><strong style="display:block; font-size:1.4rem;">jWAE-LMF</strong><span style="opacity:0.7; font-size:0.8rem;">custom architecture</span></div>
     </div>
   </div>
 </section>
